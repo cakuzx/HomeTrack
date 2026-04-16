@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { Save, ArrowLeft, Loader2, Package } from 'lucide-react';
+import { Save, ArrowLeft, Loader2 } from 'lucide-react';
 import { useAuth } from '../components/AuthProvider';
 
 const CATEGORIES = ['Alimentos', 'Limpieza', 'Higiene', 'Bebidas', 'Mascotas', 'Otros'];

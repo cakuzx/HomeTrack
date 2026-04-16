@@ -35,7 +35,7 @@ export default function PurchaseForm() {
     setLoadingProducts(true);
     const { data } = await supabase
       .from('products')
-      .select('id, name, unit, current_quantity, category')
+      .select('*')
       .order('name');
     if (data) setProducts(data);
     setLoadingProducts(false);
@@ -67,7 +67,7 @@ export default function PurchaseForm() {
       return;
     }
 
-    const insertPayload: Record<string, unknown> = {
+    const insertPayload = {
       product_id: formData.product_id,
       user_id: session.user.id,
       purchase_date: formData.purchase_date,

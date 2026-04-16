@@ -49,6 +49,7 @@ export interface Database {
           created_at?: string | null
           updated_at?: string | null
         }
+        Relationships: []
       }
       purchases: {
         Row: {
@@ -87,6 +88,7 @@ export interface Database {
           notes?: string | null
           created_at?: string | null
         }
+        Relationships: []
       }
       shopping_list: {
         Row: {
@@ -113,6 +115,7 @@ export interface Database {
           priority?: string | null
           is_purchased?: boolean | null
         }
+        Relationships: []
       }
     }
     Views: {
