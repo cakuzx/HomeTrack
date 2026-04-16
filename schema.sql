@@ -51,55 +51,55 @@ ALTER TABLE public.purchases    ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.shopping_list ENABLE ROW LEVEL SECURITY;
 
 -- Políticas para PRODUCTS
-CREATE POLICY "Users can view their own products"
+CREATE POLICY "Users can view all products"
   ON public.products FOR SELECT
-  USING (auth.uid() = user_id);
+  USING (auth.role() = 'authenticated');
 
-CREATE POLICY "Users can insert their own products"
+CREATE POLICY "Users can insert products"
   ON public.products FOR INSERT
-  WITH CHECK (auth.uid() = user_id);
+  WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY "Users can update their own products"
+CREATE POLICY "Users can update any product"
   ON public.products FOR UPDATE
-  USING (auth.uid() = user_id);
+  USING (auth.role() = 'authenticated');
 
-CREATE POLICY "Users can delete their own products"
+CREATE POLICY "Users can delete any product"
   ON public.products FOR DELETE
-  USING (auth.uid() = user_id);
+  USING (auth.role() = 'authenticated');
 
 -- Políticas para PURCHASES
-CREATE POLICY "Users can view their own purchases"
+CREATE POLICY "Users can view all purchases"
   ON public.purchases FOR SELECT
-  USING (auth.uid() = user_id);
+  USING (auth.role() = 'authenticated');
 
-CREATE POLICY "Users can insert their own purchases"
+CREATE POLICY "Users can insert purchases"
   ON public.purchases FOR INSERT
-  WITH CHECK (auth.uid() = user_id);
+  WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY "Users can update their own purchases"
+CREATE POLICY "Users can update any purchase"
   ON public.purchases FOR UPDATE
-  USING (auth.uid() = user_id);
+  USING (auth.role() = 'authenticated');
 
-CREATE POLICY "Users can delete their own purchases"
+CREATE POLICY "Users can delete any purchase"
   ON public.purchases FOR DELETE
-  USING (auth.uid() = user_id);
+  USING (auth.role() = 'authenticated');
 
 -- Políticas para SHOPPING_LIST
-CREATE POLICY "Users can view their own shopping list"
+CREATE POLICY "Users can view all shopping list"
   ON public.shopping_list FOR SELECT
-  USING (auth.uid() = user_id);
+  USING (auth.role() = 'authenticated');
 
-CREATE POLICY "Users can insert into their own shopping list"
+CREATE POLICY "Users can insert into shopping list"
   ON public.shopping_list FOR INSERT
-  WITH CHECK (auth.uid() = user_id);
+  WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY "Users can update their own shopping list"
+CREATE POLICY "Users can update any shopping list item"
   ON public.shopping_list FOR UPDATE
-  USING (auth.uid() = user_id);
+  USING (auth.role() = 'authenticated');
 
-CREATE POLICY "Users can delete from their own shopping list"
+CREATE POLICY "Users can delete any shopping list item"
   ON public.shopping_list FOR DELETE
-  USING (auth.uid() = user_id);
+  USING (auth.role() = 'authenticated');
 
 -- ==========================================
 -- Trigger: actualizar updated_at en products
